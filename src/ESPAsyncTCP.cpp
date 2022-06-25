@@ -511,6 +511,8 @@ void AsyncClient::_close(){
     if(_discard_cb)
       _discard_cb(_discard_cb_arg, this);
   }
+  ASYNC_TCP_DEBUG("_close[%u]: _tx_unacked_len = %4u \n", getConnectionId(), _tx_unacked_len);
+  _tx_unacked_len = 0;
   return;
 }
 
